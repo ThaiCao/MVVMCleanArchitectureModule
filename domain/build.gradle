@@ -3,6 +3,22 @@ plugins {
     id 'kotlin'
 }
 
+dependencies {
+
+    def domainDependencies = rootProject.ext.domainDependencies
+    def domainTestDependencies = rootProject.ext.domainTestDependencies
+
+    implementation domainDependencies.javaxInject
+    implementation domainDependencies.kotlin
+    implementation domainDependencies.rxKotlin
+
+    api domainDependencies.rxJava // RxKotlin is not resolved properly.
+
+    testImplementation domainTestDependencies.kotlinJUnit
+    testImplementation domainTestDependencies.mockito
+
+}
+
 java {
     sourceCompatibility = JavaVersion.VERSION_1_7
     targetCompatibility = JavaVersion.VERSION_1_7

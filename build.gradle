@@ -42,6 +42,45 @@ buildscript {
         test_rules_version = '1.2.0'        // Android testing library's rules.
         test_runner_version = '1.2.0'       // Android testing library's runner.
 
+        domainDependencies = [
+                javaxInject: "javax.inject:javax.inject:${javax_inject_version}",
+                kotlin     : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlin_version}",
+                rxJava     : "io.reactivex.rxjava2:rxjava:${rx_java_version}",
+                rxKotlin   : "io.reactivex.rxjava2:rxkotlin:${rx_kotlin_version}"
+        ]
+
+        domainTestDependencies = [
+                kotlinJUnit  : "org.jetbrains.kotlin:kotlin-test-junit:${kotlin_version}",
+                mockito      : "org.mockito:mockito-core:${mockito_version}"
+        ]
+
+        dataDependencies = [
+                javaxInject: "javax.inject:javax.inject:${javax_inject_version}",
+                kotlin     : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlin_version}",
+                rxKotlin   : "io.reactivex.rxjava2:rxkotlin:${rx_kotlin_version}"
+        ]
+
+        dataTestDependencies = [
+                kotlinJUnit  : "org.jetbrains.kotlin:kotlin-test-junit:${kotlin_version}",
+                mockito      : "org.mockito:mockito-core:${mockito_version}"
+        ]
+
+        remoteDependencies = [
+                javaxInject      : "javax.inject:javax.inject:${javax_inject_version}",
+                kotlin           : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlin_version}",
+                okHttp           : "com.squareup.okhttp3:okhttp:${okhttp_version}",
+                okHttpLogger     : "com.squareup.okhttp3:logging-interceptor:${okhttp_version}",
+                rxKotlin         : "io.reactivex.rxjava2:rxkotlin:${rx_kotlin_version}",
+                retrofit         : "com.squareup.retrofit2:retrofit:${retrofit_version}",
+                retrofitAdapter  : "com.squareup.retrofit2:adapter-rxjava2:${retrofit_version}",
+                retrofitConverter: "com.squareup.retrofit2:converter-gson:${retrofit_version}"
+        ]
+
+        remoteTestDependencies = [
+                kotlinJUnit  : "org.jetbrains.kotlin:kotlin-test-junit:${kotlin_version}",
+                mockito      : "org.mockito:mockito-core:${mockito_version}"
+        ]
+
         cacheDependencies = [
                 javaxInject : "javax.inject:javax.inject:${javax_inject_version}",
                 kotlin      : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlin_version}",
@@ -60,6 +99,22 @@ buildscript {
                 testCore     : "androidx.test:core:${test_core_version}",
         ]
 
+        presentationDependencies = [
+                javaxInject        : "javax.inject:javax.inject:${javax_inject_version}",
+                kotlin             : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlin_version}",
+                lifecycleCompiler  : "androidx.lifecycle:lifecycle-compiler:${lifecycle_version}",
+                lifecycleExtensions: "androidx.lifecycle:lifecycle-extensions:${lifecycle_version}",
+                rxKotlin           : "io.reactivex.rxjava2:rxkotlin:${rx_kotlin_version}"
+        ]
+
+        presentationTestDependencies = [
+                archTesting  : "androidx.arch.core:core-testing:${arch_testing}",
+                kotlinJUnit  : "org.jetbrains.kotlin:kotlin-test-junit:${kotlin_version}",
+                mockito      : "org.mockito:mockito-core:${mockito_version}",
+                robolectric  : "org.robolectric:robolectric:${robolectric_version}"
+        ]
+
+
         uiDependencies = [
                 appCompat          : "androidx.appcompat:appcompat:${app_compat_version}",
                 constraintLayout   : "androidx.constraintlayout:constraintlayout:${constraint_layout_version}",
@@ -71,7 +126,7 @@ buildscript {
                 koinTest           : "io.insert-koin:koin-test:$koin_version",
                 koinTestJunit      : "io.insert-koin:koin-test-junit4:$koin_version",
                 javaxInject        : "javax.inject:javax.inject:${javax_inject_version}",
-//                kotlin             : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlin_version}",
+                kotlin             : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlin_version}",
                 lifecycleCompiler  : "androidx.lifecycle:lifecycle-compiler:${lifecycle_version}",
                 lifecycleExtensions: "androidx.lifecycle:lifecycle-extensions:${lifecycle_version}",
                 recyclerView       : "androidx.recyclerview:recyclerview:${recyclerview_version}",

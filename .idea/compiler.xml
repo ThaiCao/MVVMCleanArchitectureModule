@@ -4,6 +4,7 @@
     <bytecodeTargetLevel target="1.7">
       <module name="MVVMCleanArchitectureModule.app" target="11" />
       <module name="MVVMCleanArchitectureModule.local" target="11" />
+      <module name="MVVMCleanArchitectureModule.presentation" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

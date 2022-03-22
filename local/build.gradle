@@ -1,8 +1,17 @@
+/*
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt' // For annotation processing.
+*/
 
-android {
+plugins {
+    id 'java-library'
+    id 'kotlin'
+    id 'kotlin-kapt'
+}
+
+
+/*android {
 
     compileSdkVersion rootProject.ext.android_compile_sdk_version
     buildToolsVersion rootProject.ext.android_build_tools_version
@@ -26,7 +35,7 @@ android {
         }
     }
 
-}
+}*/
 
 dependencies {
 
@@ -34,7 +43,7 @@ dependencies {
     def cacheTestDependencies = rootProject.ext.cacheTestDependencies
 
 
-//    implementation project(':data')
+    implementation project(':data')
 
     implementation cacheDependencies.javaxInject
     implementation cacheDependencies.kotlin

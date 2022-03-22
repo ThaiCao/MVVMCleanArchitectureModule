@@ -107,7 +107,7 @@ dependencies {
     implementation uiDependencies.koinWorkManager
     implementation uiDependencies.koinCompose
     implementation uiDependencies.javaxInject
-//    implementation uiDependencies.kotlin
+    implementation uiDependencies.kotlin
     implementation uiDependencies.recyclerView
     implementation uiDependencies.rxAndroid
     implementation uiDependencies.rxKotlin
