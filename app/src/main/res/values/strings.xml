@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MVVMCleanArchitectureModule</string>
+    <string name="title_domain">dpmain</string>
 </resources>

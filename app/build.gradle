@@ -6,12 +6,13 @@ plugins {
 }
 
 android {
-    compileSdk 31
+    compileSdkVersion rootProject.ext.android_compile_sdk_version
+    buildToolsVersion rootProject.ext.android_build_tools_version
 
     defaultConfig {
         applicationId "com.mvvm.module"
-        minSdk 26
-        targetSdk 31
+        minSdkVersion rootProject.ext.android_min_sdk_version
+        targetSdkVersion rootProject.ext.android_target_sdk_version
         versionCode 1
         versionName "1.0"
 
@@ -43,7 +44,17 @@ android {
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.7.0'
+    def uiDependencies = rootProject.ext.uiDependencies
+    def uiTestDependencies = rootProject.ext.uiTestDependencies
+
+    // UI layer should depend only on Presentation module in theory, but because we use Dagger
+    // for DI, it needs other modules to be included to generate dependencies graph.
+    implementation project(':presentation')
+    implementation project(':data')
+    implementation project(':remote')
+    implementation project(':local')
+
+   /* implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.google.android.material:material:1.5.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
@@ -86,11 +97,45 @@ dependencies {
     // glide
     implementation 'com.github.bumptech.glide:glide:4.12.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
-    implementation 'com.github.bumptech.glide:okhttp3-integration:4.12.0'
+    implementation 'com.github.bumptech.glide:okhttp3-integration:4.12.0'*/
 
-    implementation "androidx.room:room-runtime:2.4.1"
-    kapt "androidx.room:room-compiler:2.4.1"
+    implementation uiDependencies.appCompat
+    implementation uiDependencies.constraintLayout
+    implementation uiDependencies.koinCore
+    implementation uiDependencies.koinAndroid
+    implementation uiDependencies.koinCompat
+    implementation uiDependencies.koinWorkManager
+    implementation uiDependencies.koinCompose
+    implementation uiDependencies.javaxInject
+//    implementation uiDependencies.kotlin
+    implementation uiDependencies.recyclerView
+    implementation uiDependencies.rxAndroid
+    implementation uiDependencies.rxKotlin
+    implementation uiDependencies.lifecycleExtensions
+    implementation uiDependencies.material
+    implementation uiDependencies.securityCrypto
+    implementation uiDependencies.glide
+    implementation uiDependencies.glideIntegration
 
-    // optional - Kotlin Extensions and Coroutines support for Room
-    implementation "androidx.room:room-ktx:2.4.1"
+
+    kapt uiDependencies.lifecycleCompiler
+    annotationProcessor uiDependencies.glideComplier
+
+    testImplementation uiTestDependencies.kotlinJUnit
+    testImplementation uiTestDependencies.mockito
+    testImplementation uiTestDependencies.koinTest
+    testImplementation uiTestDependencies.koinTestJunit
+
+    androidTestImplementation uiTestDependencies.koinCore
+    androidTestImplementation uiTestDependencies.koinAndroid
+    androidTestImplementation uiTestDependencies.koinCompat
+    androidTestImplementation uiTestDependencies.koinWorkManager
+    androidTestImplementation uiTestDependencies.koinCompose
+    androidTestImplementation uiTestDependencies.espresso
+    androidTestImplementation uiTestDependencies.espressoContrib
+    androidTestImplementation uiTestDependencies.mockitoAndroid
+    androidTestImplementation uiTestDependencies.testCore
+    androidTestImplementation uiTestDependencies.testRules
+    androidTestImplementation uiTestDependencies.testRunner
+
 }

@@ -8,3 +8,8 @@ dependencyResolutionManagement {
 }
 rootProject.name = "MVVMCleanArchitectureModule"
 include ':app'
+include ':remote'
+include ':data'
+include ':local'
+include ':domain'
+include ':presentation'
