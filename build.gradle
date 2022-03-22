@@ -26,7 +26,7 @@ buildscript {
         javax_inject_version = '1'          // The Javax Inject API.
         room_version = '2.2.4'              // Room is a database object mapping library.
         material_version = '1.5.0'
-        security_crypto_version = '1.0.0'
+        security_crypto_version = '1.1.0-alpha03'
         glide_version = '4.12.0'
         lifecycle_version = '2.1.0'
         recyclerview_version = '1.1.0'
@@ -87,7 +87,8 @@ buildscript {
                 roomCompiler: "androidx.room:room-compiler:${room_version}",
                 roomRuntime : "androidx.room:room-runtime:${room_version}",
                 roomRxJava  : "androidx.room:room-rxjava2:${room_version}",
-                rxKotlin    : "io.reactivex.rxjava2:rxkotlin:${rx_kotlin_version}"
+                rxKotlin    : "io.reactivex.rxjava2:rxkotlin:${rx_kotlin_version}",
+                securityCrypto     : "androidx.security:security-crypto:${security_crypto_version}",
         ]
 
         cacheTestDependencies = [

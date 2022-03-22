@@ -1,17 +1,15 @@
-/*
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt' // For annotation processing.
-*/
 
-plugins {
+/*plugins {
     id 'java-library'
     id 'kotlin'
     id 'kotlin-kapt'
-}
+}*/
 
 
-/*android {
+android {
 
     compileSdkVersion rootProject.ext.android_compile_sdk_version
     buildToolsVersion rootProject.ext.android_build_tools_version
@@ -35,7 +33,7 @@ plugins {
         }
     }
 
-}*/
+}
 
 dependencies {
 
@@ -57,6 +55,7 @@ dependencies {
 
     implementation cacheDependencies.roomRxJava
     implementation cacheDependencies.rxKotlin
+    implementation cacheDependencies.securityCrypto
 
 
     testImplementation cacheTestDependencies.archTesting
