@@ -1,5 +1,7 @@
 package com.mvvm.module.koin.modules
 
+import com.mvvm.module.presentation.movie.viewmodel.MovieListViewModel
+import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val viewModelModule = module {
@@ -15,4 +17,8 @@ val viewModelModule = module {
     viewModel {
         FeedDetailViewModel()
     }*/
+
+    viewModel {
+        MovieListViewModel(get(), get())
+    }
 }
