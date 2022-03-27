@@ -6,7 +6,7 @@ import com.mvvm.module.domain.models.movies.Movie
 import com.mvvm.module.domain.usecases.GetListMoviesUseCase
 import com.mvvm.module.presentation.base.BaseViewModel
 import com.mvvm.module.presentation.movie.mapper.MoviePresentationMapper
-import com.mvvm.module.presentation.movie.models.MovieView
+import com.mvvm.module.presentation.movie.models.MoviePresentation
 import com.mvvm.module.presentation.state.Resource
 import com.mvvm.module.presentation.state.Status
 import io.reactivex.observers.DisposableSingleObserver
@@ -16,9 +16,9 @@ class MovieListViewModel(
     private val mapper: MoviePresentationMapper
 ) : BaseViewModel() {
 
-    private val movieListMutableLiveData: MutableLiveData<Resource<List<MovieView>>> = MutableLiveData()
+    private val movieListMutableLiveData: MutableLiveData<Resource<List<MoviePresentation>>> = MutableLiveData()
 
-    fun getMovieListLiveData(): LiveData<Resource<List<MovieView>>> {
+    fun getMovieListLiveData(): LiveData<Resource<List<MoviePresentation>>> {
         return movieListMutableLiveData
     }
 

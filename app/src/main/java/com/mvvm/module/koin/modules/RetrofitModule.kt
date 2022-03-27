@@ -1,13 +1,12 @@
 package com.mvvm.module.koin.modules
 
-import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
 import retrofit2.Retrofit
-import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
@@ -42,8 +41,8 @@ fun createOkHttpClient(): OkHttpClient {
 inline fun <reified T> provideAPIService(okHttpClient: OkHttpClient, url: String): T {
     val retrofit = Retrofit.Builder()
         .baseUrl(url)
-        .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
-        .addCallAdapterFactory(CoroutineCallAdapterFactory())
+        .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+//        .addCallAdapterFactory(CoroutineCallAdapterFactory())
         .client(okHttpClient).addConverterFactory(GsonConverterFactory.create())
         .build()
 

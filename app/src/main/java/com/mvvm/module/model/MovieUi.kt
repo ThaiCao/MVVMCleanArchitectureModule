@@ -1,6 +1,6 @@
-package com.mvvm.module.presentation.movie.models
+package com.mvvm.module.model
 
-data class MovieView(
+data class MovieUi(
     var id: Long? = 0,
     var movieName: String? = "",
     var voteAverage: Double? = 0.0,

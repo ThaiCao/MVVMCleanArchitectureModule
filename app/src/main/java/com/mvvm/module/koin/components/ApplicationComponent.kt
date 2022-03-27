@@ -4,5 +4,5 @@ import com.mvvm.module.koin.modules.*
 
 val applicationComponent = listOf(
     domainModule, localModule, remoteModule, repositoryModule,
-    retrofitModule, viewModelModule
+    retrofitModule, viewModelModule, dataModule
 )

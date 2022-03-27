@@ -118,6 +118,11 @@ dependencies {
     implementation uiDependencies.glide
     implementation uiDependencies.glideIntegration
 
+    implementation remoteDependencies.okHttp
+    implementation remoteDependencies.okHttpLogger
+    implementation remoteDependencies.retrofit
+    implementation remoteDependencies.retrofitAdapter
+    implementation remoteDependencies.retrofitConverter
 
     kapt uiDependencies.lifecycleCompiler
     annotationProcessor uiDependencies.glideComplier

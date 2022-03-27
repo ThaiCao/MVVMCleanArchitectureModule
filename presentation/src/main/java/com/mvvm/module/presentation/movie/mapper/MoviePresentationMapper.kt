@@ -2,11 +2,11 @@ package com.mvvm.module.presentation.movie.mapper
 
 import com.mvvm.module.domain.models.movies.Movie
 import com.mvvm.module.presentation.mapper.PresentationMapper
-import com.mvvm.module.presentation.movie.models.MovieView
+import com.mvvm.module.presentation.movie.models.MoviePresentation
 
-class MoviePresentationMapper : PresentationMapper<MovieView, Movie> {
-    override fun mapToPresentation(domain: Movie): MovieView {
-        return MovieView(
+class MoviePresentationMapper : PresentationMapper<MoviePresentation, Movie> {
+    override fun mapToPresentation(domain: Movie): MoviePresentation {
+        return MoviePresentation(
             id = domain.id,
             movieName=  domain.name,
             voteAverage = domain.voteAverage,

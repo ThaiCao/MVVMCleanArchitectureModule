@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 import com.mvvm.module.local.utils.CacheConstants
 
 @Entity(tableName = CacheConstants.MOVIE_TABLE_NAME)
-data class CachedMovie(
+data class MovieCache(
 
     @PrimaryKey
     @ColumnInfo(name = "movie_id")

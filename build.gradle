@@ -30,6 +30,7 @@ buildscript {
         glide_version = '4.12.0'
         lifecycle_version = '2.1.0'
         recyclerview_version = '1.1.0'
+        gson = '2.8.9'
 
         // Testing
         arch_testing = '2.1.0'
@@ -89,6 +90,7 @@ buildscript {
                 roomRxJava  : "androidx.room:room-rxjava2:${room_version}",
                 rxKotlin    : "io.reactivex.rxjava2:rxkotlin:${rx_kotlin_version}",
                 securityCrypto     : "androidx.security:security-crypto:${security_crypto_version}",
+                gson        : "com.google.code.gson:gson:${gson}",
         ]
 
         cacheTestDependencies = [
@@ -121,7 +123,7 @@ buildscript {
                 constraintLayout   : "androidx.constraintlayout:constraintlayout:${constraint_layout_version}",
                 koinCore           : "io.insert-koin:koin-core:$koin_version",
                 koinAndroid        : "io.insert-koin:koin-android:$koin_version",
-                koinCompat         : "io.insert-koin:koin-android-compat",
+                koinCompat         : "io.insert-koin:koin-android-compat:$koin_version",
                 koinWorkManager    : "io.insert-koin:koin-androidx-workmanager:$koin_version",
                 koinCompose        : "io.insert-koin:koin-androidx-compose:$koin_version",
                 koinTest           : "io.insert-koin:koin-test:$koin_version",
@@ -138,6 +140,11 @@ buildscript {
                 glide              : "com.github.bumptech.glide:glide:${glide_version}",
                 glideComplier      : "com.github.bumptech.glide:compiler:${glide_version}",
                 glideIntegration   : "com.github.bumptech.glide:okhttp3-integration:${glide_version}",
+                okHttp           : "com.squareup.okhttp3:okhttp:${okhttp_version}",
+                okHttpLogger     : "com.squareup.okhttp3:logging-interceptor:${okhttp_version}",
+                retrofit         : "com.squareup.retrofit2:retrofit:${retrofit_version}",
+                retrofitAdapter  : "com.squareup.retrofit2:adapter-rxjava2:${retrofit_version}",
+                retrofitConverter: "com.squareup.retrofit2:converter-gson:${retrofit_version}"
         ]
 
         uiTestDependencies = [
