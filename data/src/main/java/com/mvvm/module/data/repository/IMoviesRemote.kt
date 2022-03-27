@@ -1,10 +1,10 @@
-package com.mvvm.module.data.store
+package com.mvvm.module.data.repository
 
 import com.mvvm.module.data.models.MovieEntity
 import io.reactivex.Completable
 import io.reactivex.Single
 
-interface MoviesRemote {
+interface IMoviesRemote {
     fun getBookMarkedMovies(): Single<List<MovieEntity>>
     fun setMovieBookmarked(movieId: Long): Completable
     fun setMovieUnBookMarked(movieId: Long): Completable

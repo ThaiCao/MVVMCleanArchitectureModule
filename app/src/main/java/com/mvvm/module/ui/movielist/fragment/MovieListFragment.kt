@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.mvvm.module.R
 import com.mvvm.module.base.BaseFragment
 import com.mvvm.module.databinding.FragmentMovieListBinding
-import com.mvvm.module.mapper.MovieUiMapper
+import com.mvvm.module.remote.mapper.MovieUiMapper
 import com.mvvm.module.model.MovieUi
 import com.mvvm.module.presentation.movie.models.MoviePresentation
 import com.mvvm.module.presentation.movie.viewmodel.MovieListViewModel

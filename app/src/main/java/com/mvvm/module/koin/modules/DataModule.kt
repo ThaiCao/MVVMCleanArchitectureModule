@@ -1,11 +1,14 @@
 package com.mvvm.module.koin.modules
 
-import com.mvvm.module.data.mapper.movies.MovieEntityMapper
-import com.mvvm.module.data.store.MoviesCache
-import com.mvvm.module.domain.usecases.GetListMoviesUseCase
-import com.mvvm.module.local.mapper.movies.MovieCacheMapper
+import com.mvvm.module.data.datasource.IMovieCacheDataSource
+import com.mvvm.module.data.datasource.IMovieRemoteDataSource
+import com.mvvm.module.data.datasource.MovieDataStoreFactory
+import com.mvvm.module.data.mapper.movies.MovieIEntityMapper
 import org.koin.dsl.module
 
 val dataModule = module {
-    factory { MovieEntityMapper() }
+    factory { MovieIEntityMapper() }
+    factory { IMovieRemoteDataSource(get()) }
+    factory { IMovieCacheDataSource(get()) }
+    factory { MovieDataStoreFactory(get(), get(), get()) }
 }

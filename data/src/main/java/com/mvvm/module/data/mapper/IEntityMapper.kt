@@ -1,6 +1,6 @@
 package com.mvvm.module.data.mapper
 
-interface EntityMapper<DataModel, DomainModel> {
+interface IEntityMapper<DataModel, DomainModel> {
 
     fun mapFromEntity(entity: DataModel): DomainModel
 

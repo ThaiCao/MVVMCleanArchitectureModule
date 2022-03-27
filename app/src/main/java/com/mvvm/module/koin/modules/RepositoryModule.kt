@@ -1,10 +1,9 @@
 package com.mvvm.module.koin.modules
 
-import com.mvvm.module.data.mapper.movies.MovieEntityMapper
-import com.mvvm.module.data.repository.MoviesDataRepository
-import com.mvvm.module.domain.repositories.MovieRepository
+import com.mvvm.module.data.repositoryImpl.MoviesDataRepositoryI
+import com.mvvm.module.domain.repositories.IMovieRepository
 import org.koin.dsl.module
 
 val repositoryModule = module {
-    factory { MoviesDataRepository(get(), get()) as MovieRepository }
+    factory { MoviesDataRepositoryI(get(), get()) as IMovieRepository }
 }

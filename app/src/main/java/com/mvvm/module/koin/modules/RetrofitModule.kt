@@ -1,5 +1,8 @@
 package com.mvvm.module.koin.modules
 
+import com.mvvm.module.BuildConfig
+import com.mvvm.module.remote.services.IMovieServiceApi
+import com.mvvm.module.remote.services.MovieServiceFactory
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -11,11 +14,13 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 val retrofitModule = module {
-    factory { createOkHttpClient() }
-//    single { provideAPIService<IFeedServiceApi>(get(), BuildConfig.BASE_API) }
+   /* factory { createOkHttpClient() }
+    single { provideAPIService<IFeedServiceApi>(get(), BuildConfig.BASE_API) }*/
+    factory { MovieServiceFactory.createOkHttpClientAuthorization(BuildConfig.DEBUG, "e54d1df6bcc26b67ccadf98cea21c3f3") }
+    single { MovieServiceFactory.provideAPIService<IMovieServiceApi>(get(), "https://api.themoviedb.org/3/") }
 }
 
-fun createOkHttpClient(): OkHttpClient {
+/*fun createOkHttpClient(): OkHttpClient {
     val headersInterceptor = Interceptor { chain ->
         val original: Request = chain.request()
         val request: Request = original.newBuilder()
@@ -47,4 +52,4 @@ inline fun <reified T> provideAPIService(okHttpClient: OkHttpClient, url: String
         .build()
 
     return retrofit.create(T::class.java)
-}
+}*/

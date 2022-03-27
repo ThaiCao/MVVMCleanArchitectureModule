@@ -1,25 +1,25 @@
 package com.mvvm.module.data.datasource
 
-import com.mvvm.module.data.store.MovieDataStore
-import com.mvvm.module.data.store.MoviesCache
+import com.mvvm.module.data.repository.IMovieDataStore
+import com.mvvm.module.data.repository.IMoviesCache
 
 open class MovieDataStoreFactory(
-    private val moviesCache: MoviesCache,
-    private val movieCacheDataSource: MovieCacheDataSource,
-    private val movieRemoteDataSource: MovieRemoteDataSource) {
+    private val IMoviesCache: IMoviesCache,
+    private val movieCacheDataSource: IMovieCacheDataSource,
+    private val movieRemoteDataSource: IMovieRemoteDataSource) {
 
-    open fun getDataStore(isCached: Boolean): MovieDataStore {
-        if (isCached && !moviesCache.isExpired()) {
+    open fun getDataStore(isCached: Boolean): IMovieDataStore {
+        if (isCached && !IMoviesCache.isExpired()) {
             return getCacheDataStore()
         }
         return getRemoteDataStore()
     }
 
-    fun getCacheDataStore(): MovieDataStore {
+    fun getCacheDataStore(): IMovieDataStore {
         return movieCacheDataSource
     }
 
-    fun getRemoteDataStore(): MovieDataStore {
+    fun getRemoteDataStore(): IMovieDataStore {
         return movieRemoteDataSource
     }
 }

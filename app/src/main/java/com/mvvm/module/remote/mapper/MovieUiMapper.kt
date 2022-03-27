@@ -1,4 +1,4 @@
-package com.mvvm.module.mapper
+package com.mvvm.module.remote.mapper
 
 import com.mvvm.module.model.MovieUi
 import com.mvvm.module.presentation.movie.models.MoviePresentation

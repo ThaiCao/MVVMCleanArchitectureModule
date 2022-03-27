@@ -7,7 +7,7 @@ import androidx.room.Query
 import com.mvvm.module.local.models.movies.MovieCache
 
 @Dao
-interface MovieCacheDao {
+interface IMovieCacheDao {
     @Query("SELECT * FROM movies")
     fun getMovies(): List<MovieCache>
 

@@ -1,6 +1,6 @@
 package com.mvvm.module.presentation.mapper
 
-interface PresentationMapper<PresentationModel, DomainModel> {
+interface IPresentationMapper<PresentationModel, DomainModel> {
 
     fun mapToPresentation(domain: DomainModel): PresentationModel
 

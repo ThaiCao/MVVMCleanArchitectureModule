@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.mvvm.module.local.converters.Converters
-import com.mvvm.module.local.dao.MovieCacheDao
+import com.mvvm.module.local.dao.IMovieCacheDao
 import com.mvvm.module.local.migration.Migrations
 import com.mvvm.module.local.models.movies.MovieCache
 import com.mvvm.module.local.utils.CacheConstants
@@ -22,7 +22,7 @@ import com.mvvm.module.local.utils.CacheConstants
     Converters::class)
 abstract class AppDatabase  : RoomDatabase(){
 
-    abstract fun movieCacheDao(): MovieCacheDao
+    abstract fun movieCacheDao(): IMovieCacheDao
 
     companion object {
         @Volatile

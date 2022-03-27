@@ -1,12 +1,18 @@
-package com.mvvm.module.data.datasource
+package com.mvvm.module.remote.repositoryImp
 
+import com.mvvm.module.data.datasource.MovieDataStoreFactory
 import com.mvvm.module.data.models.MovieEntity
-import com.mvvm.module.data.store.MovieDataStore
-import com.mvvm.module.data.store.MoviesRemote
+import com.mvvm.module.data.repository.IMoviesRemote
+import com.mvvm.module.remote.mapper.movie.MovieIRemoteMapper
+import com.mvvm.module.remote.services.IMovieServiceApi
 import io.reactivex.Completable
 import io.reactivex.Single
 
-class MovieRemoteDataSource(private val moviesRemote: MoviesRemote) : MovieDataStore {
+class IMoviesRemoteImp (
+    private val moviesService: IMovieServiceApi,
+    private val movieRemoteMapper: MovieIRemoteMapper,
+    private val storeFactory: MovieDataStoreFactory
+) : IMoviesRemote {
     override fun getBookMarkedMovies(): Single<List<MovieEntity>> {
         TODO("Not yet implemented")
     }
@@ -24,10 +30,15 @@ class MovieRemoteDataSource(private val moviesRemote: MoviesRemote) : MovieDataS
     }
 
     override fun getPopularMovies(): Single<List<MovieEntity>> {
-        TODO("Not yet implemented")
+        return moviesService.getPopularsMovies().map { movieModel ->
+            movieModel.listOfMoviesResponse.map {
+                movieRemoteMapper.mapFromApiResponseModel(it)
+            }
+        }
     }
 
     override fun isCached(): Single<Boolean> {
         TODO("Not yet implemented")
     }
+
 }

@@ -1,6 +1,6 @@
 package com.mvvm.module.local.mapper
 
-interface CacheMapper<CachedModel, DataModel> {
+interface ICacheMapper<CachedModel, DataModel> {
 
     fun mapFromCached(cached: CachedModel): DataModel
 

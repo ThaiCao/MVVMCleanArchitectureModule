@@ -74,7 +74,8 @@ buildscript {
                 rxKotlin         : "io.reactivex.rxjava2:rxkotlin:${rx_kotlin_version}",
                 retrofit         : "com.squareup.retrofit2:retrofit:${retrofit_version}",
                 retrofitAdapter  : "com.squareup.retrofit2:adapter-rxjava2:${retrofit_version}",
-                retrofitConverter: "com.squareup.retrofit2:converter-gson:${retrofit_version}"
+                retrofitConverter: "com.squareup.retrofit2:converter-gson:${retrofit_version}",
+                gson            : "com.google.code.gson:gson:${gson}",
         ]
 
         remoteTestDependencies = [

@@ -1,7 +1,7 @@
 package com.mvvm.module.domain.interactor
 
-import com.mvvm.module.domain.executor.PostExecutionThread
-import com.mvvm.module.domain.executor.ThreadExecutor
+import com.mvvm.module.domain.executor.IPostExecutionThread
+import com.mvvm.module.domain.executor.IThreadExecutor
 import io.reactivex.Scheduler
 import io.reactivex.Single
 import io.reactivex.disposables.CompositeDisposable
@@ -10,8 +10,8 @@ import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
 
 abstract class SingleUseCase<Params, Result> constructor(
-    private val threadExecutor: ThreadExecutor,
-    private val postExecutionThread: PostExecutionThread
+    private val IThreadExecutor: IThreadExecutor,
+    private val IPostExecutionThread: IPostExecutionThread
 ) {
     private var requestValues: Params? = null
 
@@ -22,14 +22,14 @@ abstract class SingleUseCase<Params, Result> constructor(
      */
     open fun execute(singleObserver: DisposableSingleObserver<Result>) {
         val single = this.buildUseCaseObservable(requestValues).subscribeOn(
-            Schedulers.from(threadExecutor)
-        ).observeOn(postExecutionThread.scheduler) as Single<Result>
+            Schedulers.from(IThreadExecutor)
+        ).observeOn(IPostExecutionThread.scheduler) as Single<Result>
         addDisposable(single.subscribeWith(singleObserver))
     }
 
     open fun execute(singleObserver: DisposableSingleObserver<Result>, scheduler: Scheduler) {
         val single = this.buildUseCaseObservable(requestValues).subscribeOn(
-            Schedulers.from(threadExecutor)
+            Schedulers.from(IThreadExecutor)
         ).observeOn(scheduler) as Single<Result>
         addDisposable(single.subscribeWith(singleObserver))
     }

@@ -1,18 +1,18 @@
-package com.mvvm.module.local.implementation
+package com.mvvm.module.local.repositoryImpl
 
 import com.mvvm.module.data.models.MovieEntity
-import com.mvvm.module.data.store.MoviesCache
+import com.mvvm.module.data.repository.IMoviesCache
 import com.mvvm.module.local.db.AppDatabase
 import com.mvvm.module.local.mapper.movies.MovieCacheMapper
 import com.mvvm.module.local.sharedPreferences.SharedPrefUtils
 import io.reactivex.Completable
 import io.reactivex.Single
 
-class MoviesCacheImp(
+class IMoviesCacheImp(
     private val appDatabase: AppDatabase,
     private val movieCacheMapper: MovieCacheMapper,
     private val sharedPrefUtils: SharedPrefUtils
-) : MoviesCache {
+) : IMoviesCache {
     override fun getPopularMovies(): Single<List<MovieEntity>> {
         TODO("Not yet implemented")
     }

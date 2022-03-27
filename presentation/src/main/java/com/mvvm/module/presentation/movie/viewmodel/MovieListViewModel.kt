@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import com.mvvm.module.domain.models.movies.Movie
 import com.mvvm.module.domain.usecases.GetListMoviesUseCase
 import com.mvvm.module.presentation.base.BaseViewModel
-import com.mvvm.module.presentation.movie.mapper.MoviePresentationMapper
+import com.mvvm.module.presentation.movie.mapper.MovieIPresentationMapper
 import com.mvvm.module.presentation.movie.models.MoviePresentation
 import com.mvvm.module.presentation.state.Resource
 import com.mvvm.module.presentation.state.Status
@@ -13,7 +13,7 @@ import io.reactivex.observers.DisposableSingleObserver
 
 class MovieListViewModel(
     private val getListMoviesUseCase: GetListMoviesUseCase,
-    private val mapper: MoviePresentationMapper
+    private val mapper: MovieIPresentationMapper
 ) : BaseViewModel() {
 
     private val movieListMutableLiveData: MutableLiveData<Resource<List<MoviePresentation>>> = MutableLiveData()

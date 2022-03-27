@@ -1,17 +1,17 @@
-package com.mvvm.module.data.repository
+package com.mvvm.module.data.repositoryImpl
 
 import com.mvvm.module.data.datasource.MovieDataStoreFactory
-import com.mvvm.module.data.mapper.movies.MovieEntityMapper
+import com.mvvm.module.data.mapper.movies.MovieIEntityMapper
 import com.mvvm.module.domain.models.movies.Movie
-import com.mvvm.module.domain.repositories.MovieRepository
+import com.mvvm.module.domain.repositories.IMovieRepository
 import io.reactivex.Completable
 import io.reactivex.Single
 
-class MoviesDataRepository(
-    private val movieMapper: MovieEntityMapper,
+class MoviesDataRepositoryI(
+    private val movieMapper: MovieIEntityMapper,
 //    private val movieCreditMapper: MovieCreditMapper,
     private val movieDataStoreFactory: MovieDataStoreFactory
-) : MovieRepository {
+) : IMovieRepository {
 
     override fun getPopularMovies(): Single<List<Movie>> {
         return movieDataStoreFactory.getCacheDataStore().isCached()

@@ -4,7 +4,7 @@ import com.mvvm.module.domain.models.movies.Movie
 import io.reactivex.Completable
 import io.reactivex.Single
 
-interface MovieRepository {
+interface IMovieRepository {
     fun getPopularMovies(): Single<List<Movie>>
 //    fun getMovieCredits(movieId: Long): Single<MovieCredits>
     fun saveMovies(listMovies: List<Movie>): Completable

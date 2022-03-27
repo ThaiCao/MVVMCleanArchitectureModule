@@ -17,6 +17,7 @@ dependencies {
     implementation remoteDependencies.retrofit
     implementation remoteDependencies.retrofitAdapter
     implementation remoteDependencies.retrofitConverter
+    implementation remoteDependencies.gson
 
     testImplementation remoteTestDependencies.kotlinJUnit
     testImplementation remoteTestDependencies.mockito

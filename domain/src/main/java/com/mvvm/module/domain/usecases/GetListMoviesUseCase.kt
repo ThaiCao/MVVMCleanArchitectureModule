@@ -1,20 +1,20 @@
 package com.mvvm.module.domain.usecases
 
-import com.mvvm.module.domain.executor.PostExecutionThread
-import com.mvvm.module.domain.executor.ThreadExecutor
+import com.mvvm.module.domain.executor.IPostExecutionThread
+import com.mvvm.module.domain.executor.IThreadExecutor
 import com.mvvm.module.domain.interactor.SingleUseCase
 import com.mvvm.module.domain.models.movies.Movie
-import com.mvvm.module.domain.repositories.MovieRepository
+import com.mvvm.module.domain.repositories.IMovieRepository
 import io.reactivex.Single
 
 class GetListMoviesUseCase(
-    private val movieRepository: MovieRepository,
-    threadExecutor: ThreadExecutor,
-    postExecutionThread: PostExecutionThread
+    private val IMovieRepository: IMovieRepository,
+    IThreadExecutor: IThreadExecutor,
+    IPostExecutionThread: IPostExecutionThread
 ) : SingleUseCase<Void, List<Movie>>(
-    threadExecutor, postExecutionThread
+    IThreadExecutor, IPostExecutionThread
 ) {
     public override fun buildUseCaseObservable(requestValues: Void?): Single<List<Movie>> {
-        return movieRepository.getPopularMovies()
+        return IMovieRepository.getPopularMovies()
     }
 }

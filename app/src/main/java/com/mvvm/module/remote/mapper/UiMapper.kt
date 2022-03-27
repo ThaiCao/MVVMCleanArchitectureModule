@@ -1,4 +1,4 @@
-package com.mvvm.module.mapper
+package com.mvvm.module.remote.mapper
 
 interface UiMapper<PresentationModel, UiModel> {
 

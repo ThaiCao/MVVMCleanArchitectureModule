@@ -1,10 +1,10 @@
 package com.mvvm.module.data.mapper.movies
 
-import com.mvvm.module.data.mapper.EntityMapper
+import com.mvvm.module.data.mapper.IEntityMapper
 import com.mvvm.module.data.models.MovieEntity
 import com.mvvm.module.domain.models.movies.Movie
 
-class MovieEntityMapper : EntityMapper<MovieEntity, Movie> {
+class MovieIEntityMapper : IEntityMapper<MovieEntity, Movie> {
     override fun mapFromEntity(entity: MovieEntity): Movie {
         return Movie(
             id = entity.id,
